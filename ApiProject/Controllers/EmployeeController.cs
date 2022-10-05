@@ -16,7 +16,12 @@ namespace ApiProject.Controllers
     [AllowAnonymous]
     public class EmployeeController : ControllerBase
     {
-        private IEmployeeLogic _employeeLogic = new EmployeeLogic();
+        private IEmployeeLogic _employeeLogic;
+
+        public EmployeeController()
+        {
+            _employeeLogic = new EmployeeLogic();
+        }
 
         [HttpPost("addEmployee")]
         public async Task<ActionResponseVM<string>> Add([FromBody] EmployeeAddRequestVM request)

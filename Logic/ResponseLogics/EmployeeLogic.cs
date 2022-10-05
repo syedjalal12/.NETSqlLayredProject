@@ -16,8 +16,15 @@ namespace Logic.ResponseLogics
 {
     public class EmployeeLogic: IEmployeeLogic
     {
-        private IEmployeeFunctions _employeeFunctions = new EmployeeFunctions();
-        private ILogicHelper _logicHelper = new LogicHelper();
+        private IEmployeeFunctions _employeeFunctions;
+        private ILogicHelper _logicHelper;
+
+        public EmployeeLogic()
+        {
+            _employeeFunctions = new EmployeeFunctions();
+            _logicHelper = new LogicHelper();
+        }
+
         public async Task<ActionResponseVM<string>> add(EmployeeAddRequestVM requestVM)
         {
             try
